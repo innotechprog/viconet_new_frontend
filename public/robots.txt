@@ -1,0 +1,6 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Replace domain in sitemap when deploying (or set VITE_SITE_URL and mirror in build)
+Sitemap: https://vico.net/sitemap.xml
