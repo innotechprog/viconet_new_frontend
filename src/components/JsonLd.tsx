@@ -3,7 +3,7 @@ import {
   getSiteUrl,
   SITE_DESCRIPTION,
   SITE_NAME,
-  SITE_PAGE_TITLE,
+  SITE_TAGLINE,
 } from '../config/site'
 
 export default function JsonLd() {
