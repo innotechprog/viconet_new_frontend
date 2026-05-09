@@ -356,6 +356,16 @@ a {
   pointer-events: none;
 }
 
+.hero-map-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/images/graduate-business-handshake.jpg') left 58% / min(92vw, 1080px) auto no-repeat;
+  opacity: 0.5;
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.85) 45%, rgba(0, 0, 0, 0.25) 75%, transparent 100%);
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.98) 0%, rgba(0, 0, 0, 0.85) 45%, rgba(0, 0, 0, 0.25) 75%, transparent 100%);
+}
+
 .hero-map-bg::after {
   content: '';
   position: absolute;
@@ -2321,6 +2331,12 @@ a {
 
   .hero-grid {
     gap: 0.9rem;
+  }
+
+  .hero-map-bg::before {
+    background-size: min(118vw, 760px) auto;
+    background-position: left 66%;
+    opacity: 0.38;
   }
 
   .hero-copy {

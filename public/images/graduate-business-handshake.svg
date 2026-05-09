@@ -1,0 +1,60 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Graduate shaking hands with a business professional">
+  <defs>
+    <linearGradient id="coatGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1D4ED8"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="suitGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1F2937"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(520 480) rotate(10) scale(530 360)">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="0" y="0" width="1600" height="900" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="1.6"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="transparent"/>
+  <ellipse cx="520" cy="720" rx="390" ry="80" fill="#0B1220" fill-opacity="0.32"/>
+  <ellipse cx="770" cy="720" rx="360" ry="72" fill="#0B1220" fill-opacity="0.26"/>
+
+  <g opacity="0.98">
+    <path d="M362 525C332 548 314 596 316 644L322 738H538L546 635C548 592 530 550 500 526L454 491H410L362 525Z" fill="url(#coatGrad)"/>
+    <path d="M430 494L452 540L474 494H430Z" fill="#F8FAFC"/>
+    <rect x="439" y="536" width="26" height="202" rx="12" fill="#0B1738"/>
+
+    <ellipse cx="452" cy="404" rx="80" ry="90" fill="#F2C4A7"/>
+    <path d="M381 389C393 328 434 286 502 305C554 319 570 369 554 425C543 396 527 378 493 363C456 347 418 362 381 389Z" fill="#1E293B"/>
+    <rect x="406" y="286" width="96" height="18" rx="8" fill="#0B1738"/>
+    <path d="M360 304L452 260L546 304L452 346L360 304Z" fill="#111827"/>
+    <rect x="446" y="344" width="12" height="42" rx="4" fill="#111827"/>
+    <circle cx="452" cy="392" r="7" fill="#E5E7EB"/>
+
+    <path d="M526 566C588 566 648 578 700 606L678 650C636 630 588 620 544 620L526 566Z" fill="#F2C4A7"/>
+    <path d="M700 606C728 620 746 646 746 666C746 688 729 703 706 703C680 703 660 683 660 657C660 637 674 619 700 606Z" fill="#EFB795"/>
+  </g>
+
+  <g opacity="0.98">
+    <path d="M726 506C694 535 676 592 681 645L689 738H918L924 634C927 588 908 539 874 510L828 472H774L726 506Z" fill="url(#suitGrad)"/>
+    <path d="M774 472L804 546L834 472H774Z" fill="#F3F4F6"/>
+    <path d="M792 546H816L808 720H800L792 546Z" fill="#0A0F1E"/>
+    <path d="M804 546L824 578H784L804 546Z" fill="#7F1D1D"/>
+
+    <ellipse cx="804" cy="386" rx="79" ry="88" fill="#EDBA9B"/>
+    <path d="M726 376C740 330 780 300 834 306C888 313 916 352 905 410C884 381 860 368 828 365C788 360 758 368 726 376Z" fill="#111827"/>
+
+    <path d="M759 560C710 569 670 589 636 621L662 662C690 634 723 618 770 610L759 560Z" fill="#EDBA9B"/>
+    <path d="M608 621C580 638 564 661 564 682C564 704 581 720 604 720C630 720 648 700 648 676C648 653 634 635 608 621Z" fill="#E6AE8C"/>
+  </g>
+
+  <g filter="url(#soft)">
+    <path d="M655 661C677 646 693 641 711 643C726 645 744 654 756 670" stroke="#C28E6D" stroke-width="10" stroke-linecap="round"/>
+    <path d="M648 676C669 659 688 654 708 658C725 662 741 672 752 688" stroke="#B67E5D" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <path d="M262 742H982" stroke="#94A3B8" stroke-opacity="0.18" stroke-width="2"/>
+  <ellipse cx="560" cy="480" rx="580" ry="350" fill="url(#spot)"/>
+</svg>
