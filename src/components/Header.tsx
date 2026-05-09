@@ -1,5 +1,5 @@
+
 import { useState } from 'react'
-import LogoMark from './LogoMark'
 
 const navLinks = [
   { label: 'About Us', href: '#about' },
@@ -17,11 +17,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <a href="#" className="logo" aria-label="vico.net home">
-          <LogoMark className="logo-mark" />
-          <span className="logo-text">
-            <span className="logo-vico">vico</span>
-            <span className="logo-net">.net</span>
-          </span>
+          <img src="/viconet-logo.svg" alt="vico.net" className="logo-img" />
         </a>
 
         <button
@@ -55,10 +51,10 @@ export default function Header() {
 
         <div className={`header-cta ${open ? 'is-open' : ''}`}>
           <a className="btn btn-nav-talent" href="#signin-talent">
-            Talent Sign In
+            Talent
           </a>
           <a className="btn btn-primary btn-nav-business" href="#signin-business">
-            Business Sign In
+            Business
           </a>
         </div>
       </div>

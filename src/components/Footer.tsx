@@ -1,5 +1,5 @@
+
 import type { ReactNode } from 'react'
-import LogoMark from './LogoMark'
 
 const footerLinks = {
   links: [
@@ -36,11 +36,7 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <a href="#" className="logo logo--footer" aria-label="vico.net home">
-            <LogoMark className="logo-mark" variant="light" />
-            <span className="logo-text">
-              <span className="logo-vico">vico</span>
-              <span className="logo-net">.net</span>
-            </span>
+            <img src="/viconet-logo.svg" alt="vico.net" className="logo-img" />
           </a>
           <p className="footer-tagline">
             The digital ecosystem where professionals and businesses connect, collaborate, and grow together.
