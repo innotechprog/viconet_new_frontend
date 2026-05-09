@@ -2324,15 +2324,22 @@ a {
   }
 
   .hero-copy {
-    order: 2;
+    order: 1;
   }
 
   .hero-cards {
-    order: 1;
+    order: 2;
     margin-top: 0;
-    margin-bottom: 0.35rem;
-    grid-template-columns: repeat(3, minmax(148px, 172px));
-    justify-content: center;
+    margin-bottom: 0;
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+    width: 100%;
+    max-width: none;
+  }
+
+  .talent-card {
+    max-width: none;
+    width: 100%;
   }
 
   .hero h1 {
@@ -2351,7 +2358,14 @@ a {
   }
 
   .hero-proof {
-    display: none;
+    display: flex;
+    font-size: 0.8rem;
+    gap: 0.7rem 0.95rem;
+  }
+
+  .proof-avatars img {
+    width: 38px;
+    height: 38px;
   }
 
   .stats-row {
@@ -2457,22 +2471,16 @@ a {
   }
 
   .hero-cards {
-    grid-template-columns: repeat(2, minmax(148px, 172px));
-    max-width: 360px;
-    margin-inline: auto;
-  }
-
-  .talent-card:last-child {
-    grid-column: 1 / -1;
-    max-width: 172px;
-    margin-inline: auto;
+    grid-template-columns: 1fr;
+    max-width: none;
+    margin-inline: 0;
   }
 }
 
 @media (max-width: 420px) {
   .hero-cards {
     grid-template-columns: 1fr;
-    max-width: 172px;
+    max-width: none;
   }
 
   .talent-card,
