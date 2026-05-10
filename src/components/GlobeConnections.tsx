@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 const businesses = [
   { id: 'b1', company: 'Microsoft', cx: 510, cy: 170 },
   { id: 'b2', company: 'Deloitte', cx: 434, cy: 232 },
@@ -15,8 +13,6 @@ const talents = [
 ]
 
 export default function GlobeConnections() {
-  const [isAboutExpanded, setIsAboutExpanded] = useState(false)
-
   return (
     <section className="section section-globe" aria-labelledby="globe-heading">
       <div className="container globe-layout">
@@ -151,28 +147,9 @@ export default function GlobeConnections() {
             opportunities for long-term growth.
           </p>
 
-          {isAboutExpanded ? (
-            <>
-              <p>
-                We are committed to unlocking a wide range of high-value opportunities for our members by
-                building a trusted collaboration network.
-              </p>
-              <p>
-                Through our platform, we offer services such as job postings, career opportunities, blogs,
-                and seminars, while also connecting our community with mentors and advisors for practical
-                guidance in a rapidly evolving digital landscape.
-              </p>
-            </>
-          ) : null}
-
-          <button
-            type="button"
-            className="globe-read-more"
-            onClick={() => setIsAboutExpanded((current) => !current)}
-            aria-expanded={isAboutExpanded}
-          >
-            {isAboutExpanded ? 'Read Less' : 'Read More'}
-          </button>
+          <a className="globe-read-more" href="#about-us">
+            Read More
+          </a>
         </div>
       </div>
     </section>

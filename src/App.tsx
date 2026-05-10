@@ -14,8 +14,22 @@ import BusinessAuthPage from './components/BusinessAuthPage'
 import TalentAuthPage from './components/TalentAuthPage'
 import AboutPage from './components/AboutPage'
 import WebinarsPage from './components/WebinarsPage'
+import JobsPage from './components/JobsPage'
+import JobDetailPage from './components/JobDetailPage'
 
 const heroHashes = new Set([
+  '#signin-talent',
+  '#signin-business',
+  '#signup-talent',
+  '#signup-business',
+])
+
+const pageHashes = new Set([
+  '',
+  '#about-us',
+  '#webinars',
+  '#how-it-works',
+  '#jobs',
   '#signin-talent',
   '#signin-business',
   '#signup-talent',
@@ -31,6 +45,8 @@ export default function App() {
   const showAbout = currentHash === '#about-us'
   const showWebinars = currentHash === '#webinars'
   const showHowItWorks = currentHash === '#how-it-works'
+  const showJobs = currentHash === '#jobs'
+  const jobDetailId = currentHash.startsWith('#job-') ? currentHash.replace('#job-', '') : null
 
   useEffect(() => {
     const onHashChange = () => setCurrentHash(window.location.hash)
@@ -41,6 +57,15 @@ export default function App() {
       window.removeEventListener('hashchange', onHashChange)
     }
   }, [])
+
+  useEffect(() => {
+    const hash = currentHash || ''
+    const isJobDetail = hash.startsWith('#job-')
+
+    if (pageHashes.has(hash) || isJobDetail) {
+      window.scrollTo({ top: 0, behavior: 'auto' })
+    }
+  }, [currentHash])
 
   useEffect(() => {
     const syncHeroHashScroll = () => {
@@ -74,41 +99,73 @@ export default function App() {
   }, [])
 
   if (showWebinars) {
-    return <WebinarsPage />
+    return (
+      <div className="page-route-shell" key={currentHash || 'home'}>
+        <WebinarsPage />
+      </div>
+    )
   }
 
   if (showHowItWorks) {
-    return <HowItWorks />
+    return (
+      <div className="page-route-shell" key={currentHash || 'home'}>
+        <HowItWorks />
+      </div>
+    )
+  }
+
+  if (jobDetailId) {
+    return (
+      <div className="page-route-shell" key={currentHash || 'home'}>
+        <JobDetailPage jobId={jobDetailId} />
+      </div>
+    )
+  }
+
+  if (showJobs) {
+    return (
+      <div className="page-route-shell" key={currentHash || 'home'}>
+        <JobsPage />
+      </div>
+    )
   }
 
   if (showAbout) {
-    return <AboutPage />
+    return (
+      <div className="page-route-shell" key={currentHash || 'home'}>
+        <AboutPage />
+      </div>
+    )
   }
 
   if (talentMode) {
     return (
-      <TalentAuthPage
-        mode={talentMode}
-        onModeChange={(next) => {
-          window.location.hash = next === 'login' ? '#signin-talent' : '#signup-talent'
-        }}
-      />
+      <div className="page-route-shell" key={currentHash || 'home'}>
+        <TalentAuthPage
+          mode={talentMode}
+          onModeChange={(next) => {
+            window.location.hash = next === 'login' ? '#signin-talent' : '#signup-talent'
+          }}
+        />
+      </div>
     )
   }
 
   if (businessMode) {
     return (
-      <BusinessAuthPage
-        mode={businessMode}
-        onModeChange={(next) => {
-          window.location.hash = next === 'login' ? '#signin-business' : '#signup-business'
-        }}
-      />
+      <div className="page-route-shell" key={currentHash || 'home'}>
+        <BusinessAuthPage
+          mode={businessMode}
+          onModeChange={(next) => {
+            window.location.hash = next === 'login' ? '#signin-business' : '#signup-business'
+          }}
+        />
+      </div>
     )
   }
 
   return (
-    <>
+    <div className="page-route-shell" key={currentHash || 'home'}>
       <JsonLd />
       <SkipLink />
       <Header />
@@ -122,6 +179,6 @@ export default function App() {
         <FinalCta />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
