@@ -59,7 +59,7 @@ export default function GlobeConnections() {
 
             <g className="globe-hub" transform="translate(412 212)">
               <rect x="-32" y="-14" width="64" height="28" rx="14" />
-              <text x="0" y="5">vico.net</text>
+              <text x="0" y="5">vico.net®</text>
             </g>
 
             {talents.map((node, index) => {
@@ -147,7 +147,7 @@ export default function GlobeConnections() {
           <p className="eyebrow">ABOUT US</p>
           <h2 id="globe-heading">About Us</h2>
           <p>
-            Vico.net helps businesses and talented professionals connect, collaborate, and access meaningful
+            Vico.net® helps businesses and talented professionals connect, collaborate, and access meaningful
             opportunities for long-term growth.
           </p>
 

@@ -57,7 +57,7 @@ export default function WhyChoose() {
     <section className="section section-why" id="services" aria-labelledby="why-heading">
       <div className="container">
         <header className="section-head section-head--on-dark">
-          <p className="eyebrow">WHY CHOOSE VICO.NET™</p>
+          <p className="eyebrow">WHY CHOOSE VICO.NET®</p>
           <h2 id="why-heading">More Than a Job Board. A Growth Network.</h2>
         </header>
         <ul className="feature-grid">

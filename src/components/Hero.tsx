@@ -68,11 +68,11 @@ export default function Hero() {
           </p>
           <div className="hero-ctas">
             <a className="btn btn-primary btn-lg btn-with-icon" href="#signup-talent">
-              I&apos;m a Talent – Get Discovered
+              Get Discovered
               <IconArrow />
             </a>
             <a className="btn btn-outline-light btn-lg btn-with-icon" href="#signup-business">
-              I&apos;m a Business – Find Talent
+              Find Skilled Talent
               <IconArrow />
             </a>
           </div>

@@ -36,7 +36,7 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <a href="#" className="logo logo--footer" aria-label="vico.net home">
-            <img src="/viconet-logo.svg" alt="vico.net" className="logo-img" />
+            <img src="/viconet-logo.png" alt="vico.net" className="logo-img" />
           </a>
           <p className="footer-tagline">
             The digital ecosystem where professionals and businesses connect, collaborate, and grow together.
@@ -120,7 +120,7 @@ export default function Footer() {
 
       <div className="footer-bar">
         <div className="container footer-bar-inner">
-          <p>© {new Date().getFullYear()} vico.net. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} vico.net®. All rights reserved.</p>
           <p>
             Website by <span className="footer-credit">Blink Digital Marketing</span>
           </p>

@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import Header from './Header'
+import Footer from './Footer'
 
 function TalentPhoneSimulation() {
   const steps = [
@@ -203,18 +205,23 @@ function BusinessLaptopSimulation() {
 
 export default function HowItWorks() {
   return (
-    <section className="section section-how" id="about" aria-labelledby="how-heading">
-      <div className="container">
-        <header className="section-head">
-          <p className="eyebrow eyebrow--on-light">HOW IT WORKS</p>
-          <h2 id="how-heading">Opportunities Made Simple</h2>
-        </header>
+    <div className="how-page">
+      <Header />
+      <section className="section section-how" id="about" aria-labelledby="how-heading">
+        <div className="container">
+          <header className="section-head">
+            <p className="eyebrow eyebrow--on-light">HOW IT WORKS</p>
+            <h2 id="how-heading">Opportunities Made Simple</h2>
+          </header>
 
-        <div className="how-grid">
-          <TalentPhoneSimulation />
-          <BusinessLaptopSimulation />
+          <div className="how-grid">
+            <TalentPhoneSimulation />
+            <BusinessLaptopSimulation />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <Footer />
+    </div>
   )
 }

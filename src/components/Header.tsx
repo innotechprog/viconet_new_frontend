@@ -2,11 +2,11 @@
 import { useState } from 'react'
 
 const navLinks = [
-  { label: 'About Us', href: '#about' },
-  { label: 'Services', href: '#services' },
+  { label: 'About Us', href: '#about-us' },
+  { label: 'How It Works', href: '#how-it-works' },
   { label: 'Jobs', href: '#jobs' },
   { label: 'Blogs', href: '#resources' },
-  { label: 'Webinars & Podcasts', href: '#resources' },
+  { label: 'Webinars & Podcasts', href: '#webinars' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -17,7 +17,7 @@ export default function Header() {
     <header className="site-header">
       <div className="container header-inner">
         <a href="#" className="logo" aria-label="vico.net home">
-          <img src="/viconet-logo.svg" alt="vico.net" className="logo-img" />
+          <img src="/viconet-logo.png" alt="vico.net" className="logo-img" />
         </a>
 
         <button

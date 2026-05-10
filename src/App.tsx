@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import GlobeConnections from './components/GlobeConnections'
@@ -10,6 +10,10 @@ import FinalCta from './components/FinalCta'
 import Footer from './components/Footer'
 import JsonLd from './components/JsonLd'
 import SkipLink from './components/SkipLink'
+import BusinessAuthPage from './components/BusinessAuthPage'
+import TalentAuthPage from './components/TalentAuthPage'
+import AboutPage from './components/AboutPage'
+import WebinarsPage from './components/WebinarsPage'
 
 const heroHashes = new Set([
   '#signin-talent',
@@ -19,6 +23,25 @@ const heroHashes = new Set([
 ])
 
 export default function App() {
+  const [currentHash, setCurrentHash] = useState(() => window.location.hash)
+  const businessMode =
+    currentHash === '#signin-business' ? 'login' : currentHash === '#signup-business' ? 'signup' : null
+  const talentMode =
+    currentHash === '#signin-talent' ? 'login' : currentHash === '#signup-talent' ? 'signup' : null
+  const showAbout = currentHash === '#about-us'
+  const showWebinars = currentHash === '#webinars'
+  const showHowItWorks = currentHash === '#how-it-works'
+
+  useEffect(() => {
+    const onHashChange = () => setCurrentHash(window.location.hash)
+
+    window.addEventListener('hashchange', onHashChange)
+
+    return () => {
+      window.removeEventListener('hashchange', onHashChange)
+    }
+  }, [])
+
   useEffect(() => {
     const syncHeroHashScroll = () => {
       if (!heroHashes.has(window.location.hash)) {
@@ -49,6 +72,40 @@ export default function App() {
       window.removeEventListener('hashchange', syncHeroHashScroll)
     }
   }, [])
+
+  if (showWebinars) {
+    return <WebinarsPage />
+  }
+
+  if (showHowItWorks) {
+    return <HowItWorks />
+  }
+
+  if (showAbout) {
+    return <AboutPage />
+  }
+
+  if (talentMode) {
+    return (
+      <TalentAuthPage
+        mode={talentMode}
+        onModeChange={(next) => {
+          window.location.hash = next === 'login' ? '#signin-talent' : '#signup-talent'
+        }}
+      />
+    )
+  }
+
+  if (businessMode) {
+    return (
+      <BusinessAuthPage
+        mode={businessMode}
+        onModeChange={(next) => {
+          window.location.hash = next === 'login' ? '#signin-business' : '#signup-business'
+        }}
+      />
+    )
+  }
 
   return (
     <>

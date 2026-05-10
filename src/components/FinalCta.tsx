@@ -8,7 +8,7 @@ export default function FinalCta() {
           <p className="eyebrow eyebrow--cta">READY TO GET STARTED?</p>
           <h2 id="final-cta-heading">Your Next Opportunity is Closer Than You Think</h2>
           <p>
-            Join thousands of professionals and businesses building the future of work on vico.net.
+            Join thousands of professionals and businesses building the future of work on vico.net®.
           </p>
           <div className="final-cta-btns">
             <a className="btn btn-primary btn-lg btn-with-icon" href="#signup-talent">
