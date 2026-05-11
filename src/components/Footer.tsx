@@ -6,13 +6,13 @@ const footerLinks = {
     { label: 'About Us', href: '#about' },
     { label: 'Services', href: '#services' },
     { label: 'Jobs', href: '#jobs' },
-    { label: 'Blogs', href: '#resources' },
+    { label: 'Blogs', href: '#blogs' },
     { label: 'Contact Us', href: '#contact' },
   ],
   resources: [
     { label: 'Knowledge Base', href: '#' },
-    { label: 'Webinars', href: '#resources' },
-    { label: 'Podcasts', href: '#resources' },
+    { label: 'Webinars', href: '#webinars' },
+    { label: 'Podcasts', href: '#webinars' },
     { label: 'Help Center', href: '#' },
   ],
   company: [

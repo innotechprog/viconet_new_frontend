@@ -41,6 +41,13 @@ const talentAvatarNodes = [
   { id: 'ta12', cx: 132, cy: 286 },
 ]
 
+const companyAvatarNodes = [
+  { id: 'ca1', cx: 496, cy: 144 },
+  { id: 'ca2', cx: 612, cy: 178 },
+  { id: 'ca3', cx: 640, cy: 268 },
+  { id: 'ca4', cx: 528, cy: 346 },
+]
+
 export default function GlobeConnections() {
   return (
     <section className="section section-globe" aria-labelledby="globe-heading">
@@ -153,6 +160,27 @@ export default function GlobeConnections() {
               )
             })}
 
+            {companyAvatarNodes.map((node, index) => {
+              const gatewayX = 442
+              const gatewayY = 212
+              const mx = (node.cx + gatewayX) / 2 + 5
+              const my = Math.min(node.cy, gatewayY) - (16 + (index % 3) * 2)
+              const pathD = `M ${gatewayX} ${gatewayY} Q ${mx} ${my} ${node.cx} ${node.cy}`
+
+              return (
+                <g key={`company-avatar-link-${node.id}`}>
+                  <path
+                    className="globe-link globe-link--business globe-link--avatar"
+                    d={pathD}
+                    style={{ animationDelay: `${index * 0.14}s` }}
+                  />
+                  <circle className="flow-dot flow-dot--business" r="2.4">
+                    <animateMotion dur={`${2.2 + (index % 2) * 0.2}s`} repeatCount="indefinite" path={pathD} />
+                  </circle>
+                </g>
+              )
+            })}
+
             {businesses.map((node) => (
               <g key={node.id}>
                 <circle className="node node-business" cx={node.cx} cy={node.cy} r="13" />
@@ -198,6 +226,17 @@ export default function GlobeConnections() {
                   style={{ fill: 'url(#talentAvatarPattern)' }}
                 />
                 <circle className="node-talent-avatar-ring" cx={node.cx} cy={node.cy} r="10.5" />
+              </g>
+            ))}
+
+            {companyAvatarNodes.map((node, index) => (
+              <g key={node.id} style={{ animationDelay: `${index * 0.1}s` }}>
+                <circle className="node-company-avatar" cx={node.cx} cy={node.cy} r="9" />
+                <path
+                  className="node-icon"
+                  d={`M ${node.cx - 4} ${node.cy - 1} h8 v6 h-8 z M ${node.cx - 2} ${node.cy - 4} h4 v2 h-4 z`}
+                />
+                <circle className="node-company-avatar-ring" cx={node.cx} cy={node.cy} r="10.5" />
               </g>
             ))}
 

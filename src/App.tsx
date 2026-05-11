@@ -16,6 +16,8 @@ import AboutPage from './components/AboutPage'
 import WebinarsPage from './components/WebinarsPage'
 import JobsPage from './components/JobsPage'
 import JobDetailPage from './components/JobDetailPage'
+import BlogsPage from './components/BlogsPage'
+import ContactPage from './components/ContactPage'
 
 const heroHashes = new Set([
   '#signin-talent',
@@ -30,6 +32,8 @@ const pageHashes = new Set([
   '#webinars',
   '#how-it-works',
   '#jobs',
+  '#blogs',
+  '#contact',
   '#signin-talent',
   '#signin-business',
   '#signup-talent',
@@ -46,6 +50,8 @@ export default function App() {
   const showWebinars = currentHash === '#webinars'
   const showHowItWorks = currentHash === '#how-it-works'
   const showJobs = currentHash === '#jobs'
+  const showBlogs = currentHash === '#blogs'
+  const showContact = currentHash === '#contact'
   const jobDetailId = currentHash.startsWith('#job-') ? currentHash.replace('#job-', '') : null
 
   useEffect(() => {
@@ -126,6 +132,22 @@ export default function App() {
     return (
       <div className="page-route-shell" key={currentHash || 'home'}>
         <JobsPage />
+      </div>
+    )
+  }
+
+  if (showBlogs) {
+    return (
+      <div className="page-route-shell" key={currentHash || 'home'}>
+        <BlogsPage />
+      </div>
+    )
+  }
+
+  if (showContact) {
+    return (
+      <div className="page-route-shell" key={currentHash || 'home'}>
+        <ContactPage />
       </div>
     )
   }
