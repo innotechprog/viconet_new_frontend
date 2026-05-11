@@ -852,6 +852,11 @@ a {
   animation: flowToHub 3.6s linear infinite;
 }
 
+.globe-link--avatar {
+  stroke-width: 1.25;
+  opacity: 0.8;
+}
+
 .globe-link--business {
   animation: flowFromHub 3.3s linear infinite;
 }
@@ -970,6 +975,46 @@ a {
 
 .node-label-talent {
   fill: rgba(255, 255, 255, 0.8);
+}
+
+.node-label-talent-top {
+  text-anchor: middle;
+  fill: rgba(255, 255, 255, 0.9);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.node-talent-avatar {
+  stroke: rgba(255, 255, 255, 0.68);
+  stroke-width: 1.1;
+  animation: avatarPulse 2.6s ease-in-out infinite;
+}
+
+.node-talent-avatar-ring {
+  fill: none;
+  stroke: rgba(121, 168, 255, 0.55);
+  stroke-width: 0.9;
+  animation: avatarRingPulse 2.6s ease-in-out infinite;
+}
+
+@keyframes avatarPulse {
+  0%,
+  100% {
+    opacity: 0.96;
+  }
+  50% {
+    opacity: 0.72;
+  }
+}
+
+@keyframes avatarRingPulse {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.35;
+  }
 }
 
 .globe-action-label {

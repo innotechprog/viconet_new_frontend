@@ -1,3 +1,14 @@
+const miniAvatar = `data:image/svg+xml;utf8,${encodeURIComponent(`
+  <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
+    <rect width="64" height="64" rx="20" fill="#EEF2FF"/>
+    <path d="M16 21l16-7 16 7-16 7-16-7Z" fill="#475569"/>
+    <path d="M45 24v8" stroke="#475569" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="46" cy="33" r="2" fill="#475569"/>
+    <circle cx="32" cy="32" r="9" fill="#9CA3AF"/>
+    <path d="M16 54c0-10.4 7.7-17 16-17s16 6.6 16 17" fill="#9CA3AF"/>
+  </svg>
+`)}`
+
 const businesses = [
   { id: 'b1', company: 'Microsoft', cx: 510, cy: 170 },
   { id: 'b2', company: 'Deloitte', cx: 434, cy: 232 },
@@ -10,6 +21,24 @@ const talents = [
   { id: 't2', role: 'Software Engineer', cx: 246, cy: 265, icon: 'cap' as const },
   { id: 't3', role: 'Product Designer', cx: 142, cy: 265, icon: 'person' as const },
   { id: 't4', role: 'Cloud Architect', cx: 284, cy: 242, icon: 'cap' as const },
+  { id: 't5', role: 'QA Engineer', cx: 165, cy: 190, icon: 'person' as const },
+  { id: 't6', role: 'DevOps Engineer', cx: 226, cy: 186, icon: 'cap' as const },
+  { id: 't7', role: 'BI Analyst', cx: 210, cy: 302, icon: 'person' as const },
+]
+
+const talentAvatarNodes = [
+  { id: 'ta1', cx: 118, cy: 170 },
+  { id: 'ta2', cx: 138, cy: 214 },
+  { id: 'ta3', cx: 112, cy: 258 },
+  { id: 'ta4', cx: 136, cy: 292 },
+  { id: 'ta5', cx: 184, cy: 136 },
+  { id: 'ta6', cx: 242, cy: 136 },
+  { id: 'ta7', cx: 286, cy: 170 },
+  { id: 'ta8', cx: 304, cy: 222 },
+  { id: 'ta9', cx: 286, cy: 286 },
+  { id: 'ta10', cx: 242, cy: 322 },
+  { id: 'ta11', cx: 178, cy: 328 },
+  { id: 'ta12', cx: 132, cy: 286 },
 ]
 
 export default function GlobeConnections() {
@@ -33,6 +62,9 @@ export default function GlobeConnections() {
                 <stop offset="70%" stopColor="#1b2a72" />
                 <stop offset="100%" stopColor="#101d54" />
               </radialGradient>
+              <pattern id="talentAvatarPattern" patternUnits="objectBoundingBox" width="1" height="1">
+                <image href={miniAvatar} x="0" y="0" width="20" height="20" preserveAspectRatio="xMidYMid slice" />
+              </pattern>
             </defs>
 
             <g>
@@ -74,6 +106,27 @@ export default function GlobeConnections() {
                       repeatCount="indefinite"
                       path={pathD}
                     />
+                  </circle>
+                </g>
+              )
+            })}
+
+            {talentAvatarNodes.map((node, index) => {
+              const gatewayX = 382
+              const gatewayY = 212
+              const mx = (node.cx + gatewayX) / 2 - 4
+              const my = Math.min(node.cy, gatewayY) - (18 + (index % 4))
+              const pathD = `M ${node.cx} ${node.cy} Q ${mx} ${my} ${gatewayX} ${gatewayY}`
+
+              return (
+                <g key={`talent-avatar-link-${node.id}`}>
+                  <path
+                    className="globe-link globe-link--talent globe-link--avatar"
+                    d={pathD}
+                    style={{ animationDelay: `${index * 0.12}s` }}
+                  />
+                  <circle className="flow-dot flow-dot--talent" r="2.4">
+                    <animateMotion dur={`${2.1 + (index % 3) * 0.2}s`} repeatCount="indefinite" path={pathD} />
                   </circle>
                 </g>
               )
@@ -129,9 +182,22 @@ export default function GlobeConnections() {
                     fill="none"
                   />
                 )}
-                <text className="node-label node-label-talent" x={node.cx + 14} y={node.cy + 18}>
+                <text className="node-label node-label-talent node-label-talent-top" x={node.cx} y={node.cy - 18}>
                   {node.role}
                 </text>
+              </g>
+            ))}
+
+            {talentAvatarNodes.map((node, index) => (
+              <g key={node.id} style={{ animationDelay: `${index * 0.1}s` }}>
+                <circle
+                  className="node-talent-avatar"
+                  cx={node.cx}
+                  cy={node.cy}
+                  r="9"
+                  style={{ fill: 'url(#talentAvatarPattern)' }}
+                />
+                <circle className="node-talent-avatar-ring" cx={node.cx} cy={node.cy} r="10.5" />
               </g>
             ))}
 

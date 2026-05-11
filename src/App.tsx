@@ -172,7 +172,7 @@ export default function App() {
       <main id="main-content" role="main">
         <Hero />
         <GlobeConnections />
-        <HowItWorks />
+        <HowItWorks embedded />
         <WhyChoose />
         <TrustStats />
         <Resources />

@@ -203,7 +203,29 @@ function BusinessLaptopSimulation() {
   )
 }
 
-export default function HowItWorks() {
+type HowItWorksProps = {
+  embedded?: boolean
+}
+
+export default function HowItWorks({ embedded = false }: HowItWorksProps) {
+  if (embedded) {
+    return (
+      <section className="section section-how" id="about" aria-labelledby="how-heading">
+        <div className="container">
+          <header className="section-head">
+            <p className="eyebrow eyebrow--on-light">HOW IT WORKS</p>
+            <h2 id="how-heading">Opportunities Made Simple</h2>
+          </header>
+
+          <div className="how-grid">
+            <TalentPhoneSimulation />
+            <BusinessLaptopSimulation />
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   return (
     <div className="how-page">
       <Header />
