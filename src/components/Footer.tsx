@@ -122,7 +122,10 @@ export default function Footer() {
         <div className="container footer-bar-inner">
           <p>© {new Date().getFullYear()} vico.net®. All rights reserved.</p>
           <p>
-            Website by <span className="footer-credit">Blink Digital Marketing</span>
+            Website by{' '}
+            <a className="footer-credit" href="https://sitwalaconsulting.com/" target="_blank" rel="noreferrer">
+              Sitwala Consulting
+            </a>
           </p>
         </div>
       </div>

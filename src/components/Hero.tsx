@@ -17,16 +17,7 @@ const profiles = [
     experience: '5+ years experience',
     qualifications: ['Python', 'SQL', 'Machine Learning'],
     image: placeholderAvatar,
-    style: { top: '6%', right: '8%' },
-  },
-  {
-    name: 'David K.',
-    role: 'Software Engineer',
-    location: 'Lagos, Nigeria',
-    experience: '7+ years experience',
-    qualifications: ['React', 'TypeScript', 'Node.js'],
-    image: placeholderAvatar,
-    style: { top: '36%', right: '14%' },
+    style: { top: '8%', left: '2%' },
   },
   {
     name: 'James T.',
@@ -35,7 +26,16 @@ const profiles = [
     experience: '6+ years experience',
     qualifications: ['Figma', 'Design Systems', 'UX Research'],
     image: placeholderAvatar,
-    style: { top: '64%', right: '4%' },
+    style: { top: '8%', right: '2%' },
+  },
+  {
+    name: 'David K.',
+    role: 'Software Engineer',
+    location: 'Lagos, Nigeria',
+    experience: '7+ years experience',
+    qualifications: ['React', 'TypeScript', 'Node.js'],
+    image: placeholderAvatar,
+    style: { top: '52%', left: '20%' },
   },
 ]
 

@@ -94,7 +94,7 @@ export default function AboutPage() {
           <p className="eyebrow">ABOUT US</p>
           <h1>Who We Are</h1>
           <p className="about-hero-lead">
-            vico.net® is a digital ecosystem built to connect skilled professionals with businesses worldwide—
+            Vico.net® is a digital ecosystem built to connect skilled professionals with businesses worldwide—
             enabling meaningful work, trusted collaboration, and long-term growth for everyone.
           </p>
           <div className="about-hero-ctas">

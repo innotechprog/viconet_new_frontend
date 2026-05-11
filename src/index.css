@@ -522,7 +522,7 @@ a {
 
 .talent-card {
   position: absolute;
-  width: min(100%, 272px);
+  width: min(100%, 228px);
   animation: float 7s ease-in-out infinite;
 }
 
