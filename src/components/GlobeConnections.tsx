@@ -48,6 +48,83 @@ const companyAvatarNodes = [
   { id: 'ca4', cx: 528, cy: 346 },
 ]
 
+const aboutHighlights = [
+  {
+    title: 'Showcase Your Talent',
+    text: 'Create a rich profile with videos, documents and real work that highlights your skills.',
+    icon: 'talent',
+  },
+  {
+    title: 'Discover Opportunities',
+    text: 'Find jobs, projects, and collaborations that match your skills and goals.',
+    icon: 'search',
+  },
+  {
+    title: 'Connect & Collaborate',
+    text: 'Build meaningful relationships and collaborate with talented professionals and businesses.',
+    icon: 'connect',
+  },
+  {
+    title: 'Grow Your Business',
+    text: 'Access a diverse pool of talent and resources to take your business to the next level.',
+    icon: 'growth',
+  },
+  {
+    title: 'Learn & Stay Ahead',
+    text: 'Join webinars, read expert blogs and upskill for the future of work.',
+    icon: 'learn',
+  },
+] as const
+
+function HighlightIcon({ icon }: { icon: (typeof aboutHighlights)[number]['icon'] }) {
+  if (icon === 'talent') {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+        <circle cx="9" cy="9" r="3" />
+        <circle cx="16" cy="10" r="2.5" />
+        <path d="M3.5 18a5.5 5.5 0 0 1 11 0" />
+        <path d="M13.5 18a4.5 4.5 0 0 1 7 0" />
+      </svg>
+    )
+  }
+
+  if (icon === 'search') {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+        <circle cx="10.5" cy="10.5" r="5.5" />
+        <path d="M15 15l5 5" />
+      </svg>
+    )
+  }
+
+  if (icon === 'connect') {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+        <path d="M8.5 13.5l3-3m0 0l3-3m-3 3l3 3m-3-3l-3 3" />
+        <circle cx="5" cy="18" r="2" />
+        <circle cx="19" cy="6" r="2" />
+      </svg>
+    )
+  }
+
+  if (icon === 'growth') {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+        <path d="M4 19h16" />
+        <path d="M6 16l4-4 3 3 5-6" />
+        <path d="M16 9h2v2" />
+      </svg>
+    )
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+      <path d="M5 6.5A2.5 2.5 0 0 1 7.5 4H20v14H7.5A2.5 2.5 0 0 0 5 20.5V6.5z" />
+      <path d="M8.5 9.5h8m-8 3h6" />
+    </svg>
+  )
+}
+
 export default function GlobeConnections() {
   return (
     <section className="section section-globe" aria-labelledby="globe-heading">
@@ -256,6 +333,20 @@ export default function GlobeConnections() {
             Read More
           </a>
         </div>
+      </div>
+
+      <div className="container globe-grow-wrap" aria-label="Everything you need to grow">
+        <ul className="globe-grow-grid">
+          {aboutHighlights.map((item) => (
+            <li key={item.title} className="globe-grow-item">
+              <div className="globe-grow-icon">
+                <HighlightIcon icon={item.icon} />
+              </div>
+              <h4>{item.title}</h4>
+              <p>{item.text}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )

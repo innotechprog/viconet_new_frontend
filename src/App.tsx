@@ -18,6 +18,8 @@ import JobsPage from './components/JobsPage'
 import JobDetailPage from './components/JobDetailPage'
 import BlogsPage from './components/BlogsPage'
 import ContactPage from './components/ContactPage'
+import BottomAuthCta from './components/BottomAuthCta'
+import ScrollInteractivity from './components/ScrollInteractivity'
 
 const heroHashes = new Set([
   '#signin-talent',
@@ -108,6 +110,7 @@ export default function App() {
     return (
       <div className="page-route-shell" key={currentHash || 'home'}>
         <WebinarsPage />
+        <ScrollInteractivity />
       </div>
     )
   }
@@ -116,6 +119,7 @@ export default function App() {
     return (
       <div className="page-route-shell" key={currentHash || 'home'}>
         <HowItWorks />
+        <ScrollInteractivity />
       </div>
     )
   }
@@ -124,6 +128,7 @@ export default function App() {
     return (
       <div className="page-route-shell" key={currentHash || 'home'}>
         <JobDetailPage jobId={jobDetailId} />
+        <ScrollInteractivity />
       </div>
     )
   }
@@ -132,6 +137,7 @@ export default function App() {
     return (
       <div className="page-route-shell" key={currentHash || 'home'}>
         <JobsPage />
+        <ScrollInteractivity />
       </div>
     )
   }
@@ -140,6 +146,7 @@ export default function App() {
     return (
       <div className="page-route-shell" key={currentHash || 'home'}>
         <BlogsPage />
+        <ScrollInteractivity />
       </div>
     )
   }
@@ -148,6 +155,7 @@ export default function App() {
     return (
       <div className="page-route-shell" key={currentHash || 'home'}>
         <ContactPage />
+        <ScrollInteractivity />
       </div>
     )
   }
@@ -156,6 +164,7 @@ export default function App() {
     return (
       <div className="page-route-shell" key={currentHash || 'home'}>
         <AboutPage />
+        <ScrollInteractivity />
       </div>
     )
   }
@@ -169,6 +178,7 @@ export default function App() {
             window.location.hash = next === 'login' ? '#signin-talent' : '#signup-talent'
           }}
         />
+        <ScrollInteractivity />
       </div>
     )
   }
@@ -182,6 +192,7 @@ export default function App() {
             window.location.hash = next === 'login' ? '#signin-business' : '#signup-business'
           }}
         />
+        <ScrollInteractivity />
       </div>
     )
   }
@@ -201,6 +212,8 @@ export default function App() {
         <FinalCta />
       </main>
       <Footer />
+      <BottomAuthCta />
+      <ScrollInteractivity />
     </div>
   )
 }

@@ -1,30 +1,27 @@
 const cards = [
   {
-    type: 'blog',
-    label: 'Blog',
-    title: 'The Future of Work: Why Skills Matter More Than Degrees',
-    meta: 'October 24, 2024 · 5 min read',
-    image: '/images/blog-future-work.png',
-    imageAlt:
-      'Professional woman working on a laptop in a bright office — blog cover about skills and the future of work on vico.net',
+    type: 'podcast',
+    label: 'Podcast',
+    title: 'The Future of Remote Work',
+    meta: 'Industry Leader · 45 min listen',
+    image: 'https://img.youtube.com/vi/F-GINBMWN9g/hqdefault.jpg',
+    imageAlt: 'Podcast episode thumbnail — The Future of Remote Work on vico.net',
   },
   {
     type: 'webinar',
     label: 'Webinar',
-    title: 'Building a Strong Personal Brand in the Digital Age',
-    meta: 'November 2, 2024 · 45 min',
-    image: '/images/webinar-personal-brand.png',
-    imageAlt:
-      'Speaker presenting a webinar on building a strong personal brand online — vico.net learning resources',
+    title: 'AI & the Future of Talent Acquisition',
+    meta: 'Jun 14, 2026 · 14:00 UTC · Dr. Lebo Ndlovu',
+    image: 'https://img.youtube.com/vi/8Z3lOidpCwM/hqdefault.jpg',
+    imageAlt: 'Webinar — AI & the Future of Talent Acquisition on vico.net',
   },
   {
     type: 'podcast',
     label: 'Podcast',
-    title: 'The Collaboration Advantage: Businesses & Talent Together',
-    meta: 'October 18, 2024 · 32 min listen',
-    image: '/images/podcast-collaboration.png',
-    imageAlt:
-      'Two hosts recording a podcast about collaboration between businesses and talent — vico.net podcast',
+    title: 'Skills-First Hiring Revolution',
+    meta: 'HR Innovator · 52 min listen',
+    image: 'https://img.youtube.com/vi/WSwyXjPqDbo/hqdefault.jpg',
+    imageAlt: 'Podcast episode thumbnail — Skills-First Hiring Revolution on vico.net',
   },
 ]
 
@@ -37,8 +34,8 @@ export default function Resources() {
             <h2 id="resources-heading">Explore. Learn. Grow.</h2>
             <p className="resources-sub">Insights &amp; inspiration from experts across industries.</p>
           </div>
-          <a className="link-arrow" href="#resources">
-            View All Blogs →
+          <a className="link-arrow" href="#webinars">
+            View All Webinars & Podcasts →
           </a>
         </header>
 
@@ -55,6 +52,13 @@ export default function Resources() {
               </div>
             </article>
           ))}
+        </div>
+
+        <div className="resources-featured-cta">
+          <p>Have expertise to share with our community?</p>
+          <a className="btn btn-primary" href="#webinars">
+            Want to be Featured?
+          </a>
         </div>
       </div>
     </section>

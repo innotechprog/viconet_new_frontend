@@ -1,5 +1,6 @@
 
 import type { ReactNode } from 'react'
+import taBadiraLogo from '../assets/logo-ta-badira.svg'
 
 const footerLinks = {
   links: [
@@ -115,6 +116,21 @@ export default function Footer() {
               Subscribe
             </button>
           </form>
+        </div>
+      </div>
+
+      <div className="footer-powered">
+        <div className="container footer-powered-inner">
+          <p className="footer-powered-label">Powered by TA &amp; Badira</p>
+          <a
+            href="https://ta-badira.co.za/"
+            target="_blank"
+            rel="noreferrer"
+            className="footer-powered-link"
+            aria-label="TA & Badira – visit website"
+          >
+            <img src={taBadiraLogo} alt="TA & Badira logo" className="footer-powered-img" />
+          </a>
         </div>
       </div>
 

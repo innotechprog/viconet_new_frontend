@@ -1,8 +1,8 @@
 const stats = [
-  { line1: '10,000+', line2: 'Professionals' },
-  { line1: '1,500+', line2: 'Businesses' },
-  { line1: '50+', line2: 'Countries' },
-  { line1: '98%', line2: 'Satisfaction Rate' },
+  { line1: '10,000+', line2: 'Professionals', accent: '#111827' },
+  { line1: '1,500+',  line2: 'Businesses',    accent: '#6b7280' },
+  { line1: '50+',     line2: 'Countries',      accent: '#6b7280' },
+  { line1: '98%',     line2: 'Satisfaction Rate', accent: '#6b7280' },
 ]
 
 function PartnerMicrosoft() {
@@ -56,6 +56,8 @@ const partners = [
   { id: 'ibm', el: <PartnerIbm /> },
 ]
 
+const partnersLoop = [...partners, ...partners, ...partners, ...partners]
+
 export default function TrustStats() {
   return (
     <section className="section section-trust" id="jobs" aria-labelledby="trust-heading">
@@ -67,18 +69,22 @@ export default function TrustStats() {
           {stats.map((s) => (
             <li key={s.line2} className="stat-item">
               <span className="stat-line1">{s.line1}</span>
-              <span className="stat-line2">{s.line2}</span>
+              <span className="stat-line2" style={{ color: s.accent }}>{s.line2}</span>
             </li>
           ))}
         </ul>
+      </div>
+      <div className="partners-carousel">
         <p className="partners-label">Trusted by teams at</p>
-        <ul className="partners-row">
-          {partners.map((p) => (
-            <li key={p.id} className="partner-logo partner-logo--svg">
-              {p.el}
-            </li>
-          ))}
-        </ul>
+        <div className="partners-carousel-track-wrap" aria-hidden="true">
+          <ul className="partners-carousel-track">
+            {partnersLoop.map((p, i) => (
+              <li key={`${p.id}-${i}`} className="partner-logo partner-logo--svg">
+                {p.el}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   )
