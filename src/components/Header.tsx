@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const navLinks = [
   { label: 'About Us', href: '#about-us' },
@@ -12,6 +12,27 @@ const navLinks = [
 
 export default function Header() {
   const [open, setOpen] = useState(false)
+  const [activeHash, setActiveHash] = useState(() => {
+    const hash = window.location.hash || ''
+
+    if (hash.startsWith('#job-')) {
+      return '#jobs'
+    }
+
+    return hash
+  })
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const hash = window.location.hash || ''
+      setActiveHash(hash.startsWith('#job-') ? '#jobs' : hash)
+      setOpen(false)
+    }
+
+    window.addEventListener('hashchange', onHashChange)
+
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [])
 
   return (
     <header className="site-header">
@@ -41,7 +62,12 @@ export default function Header() {
           <ul>
             {navLinks.map(({ label, href }) => (
               <li key={label}>
-                <a href={href} onClick={() => setOpen(false)}>
+                <a
+                  href={href}
+                  className={activeHash === href ? 'is-active' : ''}
+                  aria-current={activeHash === href ? 'page' : undefined}
+                  onClick={() => setOpen(false)}
+                >
                   {label}
                 </a>
               </li>

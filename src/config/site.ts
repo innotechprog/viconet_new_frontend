@@ -19,5 +19,5 @@ export const SITE_DESCRIPTION =
 
 /** Default Open Graph / Twitter image (1200×630 recommended). */
 export function getDefaultOgImage(): string {
-  return `${getSiteUrl()}/images/blog-future-work.png`
+  return `${getSiteUrl()}/logo-fav.png`
 }

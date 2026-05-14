@@ -553,6 +553,23 @@ a {
   color: var(--magenta);
 }
 
+.nav-links a.is-active {
+  color: var(--magenta);
+  font-weight: 700;
+  position: relative;
+}
+
+.nav-links a.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.1rem;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--magenta);
+}
+
 .header-cta {
   display: flex;
   flex-wrap: wrap;
@@ -5092,6 +5109,13 @@ a {
     display: block;
     padding: 0.85rem 0;
     font-size: 0.9rem;
+  }
+
+  .nav-links a.is-active::after {
+    left: auto;
+    right: 0;
+    width: 28px;
+    bottom: 0.55rem;
   }
 
   .header-inner .header-cta {
