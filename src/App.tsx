@@ -20,6 +20,7 @@ import BlogsPage from './components/BlogsPage'
 import ContactPage from './components/ContactPage'
 import BottomAuthCta from './components/BottomAuthCta'
 import ScrollInteractivity from './components/ScrollInteractivity'
+import { getDefaultOgImage, getSiteUrl, SITE_DESCRIPTION, SITE_PAGE_TITLE } from './config/site'
 
 const heroHashes = new Set([
   '#signin-talent',
@@ -41,6 +42,88 @@ const pageHashes = new Set([
   '#signup-talent',
   '#signup-business',
 ])
+
+const defaultSeo = {
+  title: SITE_PAGE_TITLE,
+  description: SITE_DESCRIPTION,
+}
+
+const pageSeoByHash: Record<string, { title: string; description: string; noindex?: boolean }> = {
+  '#about-us': {
+    title: 'About vico.net | Talent & Business Growth Platform',
+    description:
+      'Learn how vico.net connects professionals and businesses for collaboration, trusted hiring, and long-term growth.',
+  },
+  '#webinars': {
+    title: 'Webinars & Podcasts | vico.net Knowledge Hub',
+    description:
+      'Watch webinars and listen to podcasts from industry experts on remote work, hiring, branding, and business growth.',
+  },
+  '#how-it-works': {
+    title: 'How It Works | vico.net',
+    description:
+      'Discover how to build your profile, connect with verified opportunities, and collaborate with leading businesses on vico.net.',
+  },
+  '#jobs': {
+    title: 'Jobs & Opportunities | vico.net',
+    description:
+      'Find verified roles and opportunities that match your skills, goals, and preferred work style.',
+  },
+  '#blogs': {
+    title: 'Blog Insights | vico.net',
+    description:
+      'Explore practical insights about talent, hiring, collaboration, and future-of-work trends on vico.net.',
+  },
+  '#contact': {
+    title: 'Contact Us | vico.net',
+    description:
+      'Get in touch with the vico.net team for support, partnerships, and platform inquiries.',
+  },
+  '#signin-talent': {
+    title: 'Talent Sign In | vico.net',
+    description: 'Sign in to your vico.net talent account and manage your profile and opportunities.',
+    noindex: true,
+  },
+  '#signup-talent': {
+    title: 'Talent Sign Up | vico.net',
+    description: 'Create your vico.net talent account and start showcasing your skills to top businesses.',
+    noindex: true,
+  },
+  '#signin-business': {
+    title: 'Business Sign In | vico.net',
+    description: 'Sign in to your vico.net business account to connect with verified professionals.',
+    noindex: true,
+  },
+  '#signup-business': {
+    title: 'Business Sign Up | vico.net',
+    description: 'Create your vico.net business account and discover talent that helps your team grow.',
+    noindex: true,
+  },
+}
+
+function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
+  let tag = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`)
+
+  if (!tag) {
+    tag = document.createElement('meta')
+    tag.setAttribute(attr, key)
+    document.head.appendChild(tag)
+  }
+
+  tag.setAttribute('content', content)
+}
+
+function upsertCanonical(url: string) {
+  let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+
+  if (!link) {
+    link = document.createElement('link')
+    link.setAttribute('rel', 'canonical')
+    document.head.appendChild(link)
+  }
+
+  link.setAttribute('href', url)
+}
 
 export default function App() {
   const [currentHash, setCurrentHash] = useState(() => window.location.hash)
@@ -105,6 +188,41 @@ export default function App() {
       window.removeEventListener('hashchange', syncHeroHashScroll)
     }
   }, [])
+
+  useEffect(() => {
+    const siteUrl = getSiteUrl()
+    const ogImage = getDefaultOgImage()
+    const hash = currentHash || ''
+
+    const pageSeo = hash.startsWith('#job-')
+      ? {
+          title: 'Job Details | vico.net',
+          description: 'Review job details and apply to verified opportunities on vico.net.',
+        }
+      : pageSeoByHash[hash] || defaultSeo
+
+    const pageUrl = hash ? `${siteUrl}/${hash}` : `${siteUrl}/`
+    const robots = pageSeo.noindex
+      ? 'noindex, nofollow, noarchive'
+      : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+
+    document.title = pageSeo.title
+    upsertCanonical(pageUrl)
+
+    upsertMeta('name', 'description', pageSeo.description)
+    upsertMeta('name', 'robots', robots)
+    upsertMeta('name', 'twitter:card', 'summary_large_image')
+    upsertMeta('name', 'twitter:url', pageUrl)
+    upsertMeta('name', 'twitter:title', pageSeo.title)
+    upsertMeta('name', 'twitter:description', pageSeo.description)
+    upsertMeta('name', 'twitter:image', ogImage)
+
+    upsertMeta('property', 'og:type', 'website')
+    upsertMeta('property', 'og:url', pageUrl)
+    upsertMeta('property', 'og:title', pageSeo.title)
+    upsertMeta('property', 'og:description', pageSeo.description)
+    upsertMeta('property', 'og:image', ogImage)
+  }, [currentHash])
 
   if (showWebinars) {
     return (
